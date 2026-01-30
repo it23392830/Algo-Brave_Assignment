@@ -45,12 +45,14 @@ export default function UsersPage() {
             </div>
 
             <div className="flex gap-3">
+              {/* ✅ FIXED ROUTE */}
               <Link
-                href={`/users/${user.id}`}
+                href={`/users/edit/${user.id}`}
                 className="text-blue-600 underline"
               >
                 Edit
               </Link>
+
               <button
                 onClick={() => {
                   if (confirm("Delete this user?")) {
