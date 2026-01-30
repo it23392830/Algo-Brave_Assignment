@@ -25,9 +25,9 @@ export async function createUser(user: User): Promise<User> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
   });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || "Create failed");
-  return data;
+
+  if (!res.ok) throw new Error("Create failed");
+  return res.json();
 }
 
 export async function updateUser(id: number, user: User): Promise<User> {
@@ -36,14 +36,15 @@ export async function updateUser(id: number, user: User): Promise<User> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(user),
   });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error || "Update failed");
-  return data;
+
+  if (!res.ok) throw new Error("Update failed");
+  return res.json();
 }
 
 export async function deleteUser(id: number): Promise<void> {
   const res = await fetch(`${BASE_URL}/api/users/${id}`, {
     method: "DELETE",
   });
+
   if (!res.ok) throw new Error("Delete failed");
 }

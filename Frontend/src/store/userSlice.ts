@@ -56,7 +56,6 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // Fetch all
       .addCase(fetchUsers.pending, (state) => {
         state.loading = true;
         state.error = undefined;
@@ -70,17 +69,14 @@ const userSlice = createSlice({
         state.error = action.error.message;
       })
 
-      // Fetch one
       .addCase(fetchUser.fulfilled, (state, action) => {
         state.selected = action.payload;
       })
 
-      // Create
       .addCase(addUser.fulfilled, (state, action) => {
         state.list.unshift(action.payload);
       })
 
-      // Update
       .addCase(editUser.fulfilled, (state, action) => {
         state.list = state.list.map((u) =>
           u.id === action.payload.id ? action.payload : u
@@ -88,7 +84,6 @@ const userSlice = createSlice({
         state.selected = action.payload;
       })
 
-      // Delete
       .addCase(removeUser.fulfilled, (state, action) => {
         state.list = state.list.filter((u) => u.id !== action.payload);
       });
