@@ -8,6 +8,8 @@ import {
   User,
 } from "@/services/userApi";
 
+//Async thunks (createAsyncThunk) for API calls
+
 type UsersState = {
   list: User[];
   selected?: User;
@@ -56,7 +58,7 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchUsers.pending, (state) => {
+      .addCase(fetchUsers.pending, (state) => { //get users
         state.loading = true;
         state.error = undefined;
       })
@@ -69,7 +71,7 @@ const userSlice = createSlice({
         state.error = action.error.message;
       })
 
-      .addCase(fetchUser.fulfilled, (state, action) => {
+      .addCase(fetchUser.fulfilled, (state, action) => { //get user by id
         state.selected = action.payload;
       })
 

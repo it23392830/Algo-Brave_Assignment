@@ -6,3 +6,6 @@ public class NotFoundException extends RuntimeException {
     }
 }
 
+//our GlobalExceptionHandler catches NotFoundException and 
+// returns a 404 Not Found with a JSON body: { "error": "<message>" }
+

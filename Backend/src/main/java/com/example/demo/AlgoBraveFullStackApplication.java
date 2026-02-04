@@ -11,3 +11,5 @@ public class AlgoBraveFullStackApplication {
 	}
 
 }
+
+//entry point to start the sprinboot spring boot application

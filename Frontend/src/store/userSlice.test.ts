@@ -1,5 +1,15 @@
 import userReducer, { addUser, removeUser } from "./userSlice";
 
+//What is tested//
+//Add user:
+//Starts with empty list.
+//Dispatches addUser.fulfilled with a user.
+//Asserts list length becomes 1 and the user’s name matches.
+//Remove user:
+//Starts with one user in the list.
+//Dispatches removeUser.fulfilled with the user’s id.
+//Asserts the list becomes empty.
+
 describe("userSlice reducer", () => {
   it("should add a user", () => {
     const initialState = { list: [], loading: false };
@@ -28,3 +38,9 @@ describe("userSlice reducer", () => {
     expect(state.list.length).toBe(0);
   });
 });
+
+
+//Why this matters//
+//Verifies state transitions are correct without UI or API.
+//Ensures Immer-powered updates work as expected.
+//Fast, deterministic logic tests.

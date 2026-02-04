@@ -11,3 +11,5 @@ export default function Providers({
   return <Provider store={store}>{children}</Provider>;
 }
 
+//This file sets up Redux at the app root so all pages can 
+// read and dispatch to the global store.

@@ -15,13 +15,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-@ExtendWith(MockitoExtension.class)
+//unit tests the userservice 
+//Tests UserService logic in isolation without a real database.
+// verifies behaviour
+
+@ExtendWith(MockitoExtension.class) //enables Mockito for creating mocks and injecting them
 class UserServiceTest {
 
-    @Mock
+    @Mock // creates a mock UserRepository
     private UserRepository repository;
 
-    @InjectMocks
+    @InjectMocks //creates an instance of UserService and injects the mock repository into it.
     private UserService service;
 
     @Test
@@ -36,6 +40,8 @@ class UserServiceTest {
 
         assertEquals("Test", result.getName());
     }
+    //This test verifies that when a user exists in the repository, 
+    // UserService.getById returns that user with the correct data.
 
     @Test
     void deleteUser_shouldCallRepository() {
@@ -53,3 +59,6 @@ class UserServiceTest {
     }
 
 }
+//This test validates that when deleting a user, the service finds 
+// the user and calls the repository’s delete method exactly once 
+// with the correct entity.

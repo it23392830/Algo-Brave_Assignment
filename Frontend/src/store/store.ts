@@ -10,3 +10,7 @@ export const store = configureStore({
 // Types for TypeScript
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+//Uses configureStore to create the Redux store.
+//Combines reducers: users: userReducer.
+//Exports TypeScript types: RootState and AppDispatch.

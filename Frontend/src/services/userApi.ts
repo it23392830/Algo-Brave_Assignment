@@ -6,6 +6,9 @@ export type User = {
   email: string;
   phone: string;
 };
+//abstracts backend API calls for user data, 
+// used by your Redux async thunks to keep the UI in sync with the 
+// Spring Boot REST API.
 
 export async function getUsers(): Promise<User[]> {
   const res = await fetch(`${BASE_URL}/api/users`, { cache: "no-store" });
